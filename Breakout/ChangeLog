@@ -1,0 +1,58 @@
+2012.09.15 Version 0.1.7
+* jsdocs are now generated as part of build process
+* Added index page for examples: /examples/index.html (initial idea by Fabian Affolter)
+* Added additional getting_started examples (contributed by Fabian Affolter)
+* Included SignalScope.js in the core library under src/utils/
+* Added getFirmwareName() and getPinCapabilities() methods to IOBoard.js (contributed by Fabian Affolter)
+* Added command line arguments to nodeJS server (contributed by Fabian Affolter)
+* Removed useSocketIO parameter from IOBoard and WSocketWrapper. If you include socket.io, it is now assumed you are using the nodeJS server.
+* Changed default port for nodeJS server from 8080 to 8887
+* Updated nodeJS server to use express framework
+* Enabled touch events for jQuery UI elements
+
+2012.07.18 Version 0.1.6
+* Added examples demonstrating use of DeviceMotion and DeviceOrientation APIs with Breakout
+* Added fritzing files to Breakout/examples/schematics_src/fritzing/
+* Updated examples to be more mobile friendly
+* Added simple_led and analog_input examples (contributed by Fabian Affolter)
+* Updated schematics.pdf to include analog_input example
+* Fixed issued in processingJS accelerometer example
+
+2012.06.30 Version 0.1.5
+* Added example for Arduino Leonardo board
+* Added Leonardo wiring diagram to schematics.pdf
+* Added build script to minify files
+
+2012.04.14 Version 0.1.4
+* Fixed LED and RGBLED fadeTo issue (issue #8)
+* Fixed Pin / Button bug that was causing pins on same port to trigger false events (issue #14)
+* Added DISCONNECTED event to IOBoardEvent that is fired when the server is disconnected (issue #12)
+
+2012.03.31 Version 0.1.3
+* Min, max and average pin values are now calculated after any filters are applied (issue #11).
+* Common Anode RGB LEDs now work properly (issue #8)
+* Changed R, G, and B pins in rgb_led example to match pins in the schematics.pdf document (issue #10).
+* Fixed dcmotor example (issue #9)
+* Fixed LED toggle (issue #7)
+* Created new hello_world example to better demonstrate basic input and output.
+* Added a template example that can be used as a starting point for new projects.
+* Added basic processing_js example and templates for starting new 2d and 3d processing_js projects with Breakout.
+* Added examples of flex, FSR (pressure), IR proximity, temperature and sonar sensors.
+* Updated schematics to add new sensor examples and dcmotor with external power supply.
+
+2012.03.20 Version 0.1.2
+* Updated for Firefox 11 compatibility
+* Updated readme
+
+2012.03.12 Version 0.1.1
+* Fixed jQuery library mismatch for custom_examples (issue #2)
+* Fixed serial port selection issue in Breakout Server (issue #3)
+* Fixed ability to use scaler equations in Scaler.js (issue #4)
+* Updated actuator, filter and generator examples to use in-browser controls
+* Added signal viewer (SignalScope.js) to filter and generator examples
+* Updated documentation
+* Updated schematics
+* Updated readme
+
+2012.02.20 Version 0.1.0
+* First public beta

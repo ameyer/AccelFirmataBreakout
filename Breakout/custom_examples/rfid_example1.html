@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset=utf-8 />
+<style type="text/css">
+#textBox{
+	font-family: "Arial";
+	font-size: 22px;
+	color: #00AEEF;
+	padding:20px;
+}
+</style>
+
+<title>RFID Example</title>
+
+<!-- custom io objects are included separately, after Breakout.js -->
+<script src="../dist/Breakout.js"></script>
+<script src="../src/custom/RFIDEvent.js"></script>
+<script src="../src/custom/ID12RFIDReader.js"></script>
+<script src="libs/jquery-1.7.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// dependencies
+	// declare these variables so you don't have
+	// to type the full namespace
+	var IOBoard = BO.IOBoard;
+	var IOBoardEvent = BO.IOBoardEvent;
+	var ID12RFIDReader = BO.custom.ID12RFIDReader;
+	var RFIDEvent = BO.custom.RFIDEvent;
+
+	// set to true to print debug messages to console
+	BO.enableDebugging = true;	
+	
+	var ard = new IOBoard("localhost", 8887);
+	var rfid;
+		
+	ard.addEventListener(IOBoardEvent.READY, onReady);
+
+	function onReady(event) {
+					
+		ard.removeEventListener(IOBoardEvent.READY, onReady);
+
+		rfid = new ID12RFIDReader(ard);
+		rfid.addEventListener(RFIDEvent.ADD_TAG, onAddTag);
+		rfid.addEventListener(RFIDEvent.REMOVE_TAG, onRemoveTag);
+	}
+	
+	function onAddTag(event) {
+		$('#textBox').html("Added tag: " + event.tag);
+	}
+	
+	function onRemoveTag(event) {
+		$('#textBox').html("Removed tag: " + event.tag);
+	}
+						
+});
+
+</script>
+
+</head>
+<body>
+  
+<div id="textBox">Read a tag.</div>
+  
+</body>
+</html>​
